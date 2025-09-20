@@ -15,7 +15,7 @@ module.exports.createNewListing=async(req,res)=>{
     limit: 2
   })
   .send()
-  const allowedCategories = ['Rooms', 'Iconic cities', 'Mountains', 'Arctic', 'Amazing pools', 'Farms', 'Beach'];
+  const allowedCategories = ['Rooms', 'Iconic cities', 'Mountains', 'Arctic', 'Amazing pools', 'Farms', 'Beach','Apartments'];
   if (!allowedCategories.includes(req.body.listing.category)) {
     req.flash('error', 'Invalid category.');
     return res.redirect('/listings/new');
