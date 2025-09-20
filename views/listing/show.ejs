@@ -71,9 +71,12 @@
                 <p class="starability-result card-text" data-rating="<%=review.rating%>"></p>
                 <p class="card-text"><%=review.comment%></p>
             </div>
-            <form method="POST" action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE">
-                <button class="btn btn-dark btn-sm mb-3">Delete</button>
-             </form>
+            <br>
+            <%if(currentUser && currentUser._id.equals(review.author._id)){%>
+                <form method="POST" action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE">
+                    <button class="btn btn-dark btn-sm mb-3">Delete</button>
+                </form>
+             <%}%>
         </div>
     <% } %>
     </div>
